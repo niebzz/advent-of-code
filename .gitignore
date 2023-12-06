@@ -1,0 +1,10 @@
+# SECRETS 
+common_utils # package containing personal info I don't want uploaded to github
+common_utils/__init__.py
+
+# MY ADVENT OF CODE WORK
+2022
+
+# ADVENT OF CODE (copyrighted files)
+2023/day 6/input.txt
+2023/day 6/test_input.txt
