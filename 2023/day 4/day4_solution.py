@@ -2,7 +2,7 @@ import re
 import time # part 2 takes a while
 
 
-input = open(r"C:\Users\jaken\anaconda3\my_sandbox\advent of code\2023\day 4\input.txt", "r").read()
+input = open(r"input.txt", "r").read()
 input = input.split("\n")
 
 num_rows = len(input)

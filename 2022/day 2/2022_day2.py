@@ -1,4 +1,4 @@
-path = r"C:\Users\jaken\anaconda3\my_sandbox\advent of code\2022\day 2\input.txt"
+path = r"input.txt"
 strategy_guide = open(path).read().split("\n")
 
 # --- Part One ---

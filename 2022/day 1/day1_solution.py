@@ -1,5 +1,5 @@
 
-input_path = r"C:\Users\jaken\anaconda3\my_sandbox\advent of code\2022\day 1\input.txt"
+input_path = r"input.txt"
 input = open(input_path).read().split("\n")
 
 num_elves = int(len([x for x in input if x == ""])) + 1

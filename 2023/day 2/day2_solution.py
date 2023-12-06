@@ -1,6 +1,6 @@
 import re
 
-input = open("advent of code/2023/day 2/input.txt", "r").readlines()
+input = open("input.txt", "r").readlines()
 
 total_red = 12;
 total_green = 13;
