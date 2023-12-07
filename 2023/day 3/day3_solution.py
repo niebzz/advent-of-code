@@ -1,6 +1,7 @@
 import re
+from common_utils import aoc_filepath
 
-input = open(r"input.txt", "r").read()
+input = open(aoc_filepath + r"\2023\day 3\input.txt", "r").read()
 input = input.split("\n")
 
 num_rows = len(input)
@@ -43,7 +44,7 @@ for y, line in enumerate(input):
         range_x = n + 2
         range_y = 3
 
-        print(f"Digit: {digit}; x: {start_x}...{end_x}; y: {y}")
+        # print(f"Digit: {digit}; x: {start_x}...{end_x}; y: {y}")
 
         adjacent_chars = []
 
@@ -64,7 +65,7 @@ for y, line in enumerate(input):
                     elif col >= num_rows:
                         pass
                     else:
-                        print(f"    adjacent cells: (row {x}, col {col}): char = '{input[col][x]}'")
+                        # print(f"    adjacent cells: (row {x}, col {col}): char = '{input[col][x]}'")
                       
                         
                         adjacent_chars.append(input[col][x])
@@ -74,7 +75,7 @@ for y, line in enumerate(input):
         for symbol in symbols:
             if symbol in adjacent_chars:
                 valid_part_numbers.append(digit)
-                print(f"DIGIT {digit} IS VALID.")
+                # print(f"DIGIT {digit} IS VALID.")
                     
     
     
