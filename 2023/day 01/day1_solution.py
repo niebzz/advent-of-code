@@ -1,6 +1,6 @@
 import re
 
-INPUT_FILE = r"advent of code\2023\day 1\input.txt"
+INPUT_FILE = r"advent of code\2023\day 01\input.txt"
 
 
 def process_input_data(input_file):

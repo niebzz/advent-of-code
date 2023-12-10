@@ -140,7 +140,7 @@ def sort_hands(input_data: dict):
 
 
 def part1():
-    data = process_input_data(r"advent of code\2023\day 7\input.txt")
+    data = process_input_data(r"advent of code\2023\day 07\input.txt")
     ranked_hands = sort_hands(data)
 
     total_winnings = 0

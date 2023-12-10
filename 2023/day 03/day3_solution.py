@@ -1,7 +1,7 @@
 import re
 from common_utils import aoc_filepath
 
-input = open(aoc_filepath + r"\2023\day 3\input.txt", "r").read()
+input = open(aoc_filepath + r"\2023\day 03\input.txt", "r").read()
 input = input.split("\n")
 
 num_rows = len(input)

@@ -98,13 +98,6 @@ def part1():
     furthest_point = int(step_count / 2)
     print(f" Part 1: {furthest_point}")
 
-    # rows = [pos[0] for pos in main_loop]
-    # cols = [pos[1] for pos in main_loop]
-    # plt.plot(rows, cols)
-    # plt.gca().invert_yaxis()
-    # plt.plot(s[1], s[0], "ro")
-    # plt.show()
-
     return s, input_data, grid, main_loop, step_count
 
 s, input_data, grid, main_loop, step_count = part1()
@@ -119,6 +112,7 @@ def part2():
             data[r][c] = grid[(r, c)]
 
     total_count = 0
+    inside = {}
     for r, row in enumerate(data):
         line_count = 0
         odd_number = False
@@ -132,8 +126,23 @@ def part2():
             elif ch == ".":
                 if odd_number:
                     line_count += 1
+                    inside[(r, c)] = "I"
 
         total_count += line_count
-    print(f"Part2: {total_count}")         
+    print(f"Part2: {total_count}")  
 
-part2()
+    return total_count, inside       
+
+total_count, inside = part2()
+
+# extra plotting
+rows = [pos[0] for pos in main_loop]
+cols = [pos[1] for pos in main_loop]
+inside_rows = [pos[0] for pos in inside]
+inside_cols = [pos[1] for pos in inside]
+
+plt.plot(rows, cols, "b", label="Main Loop")
+plt.plot(s[1], s[0], "ro", label="S") 
+plt.plot(inside_rows, inside_cols, "g*", label="Enclosed Tiles")
+plt.gca().invert_yaxis()
+plt.show()

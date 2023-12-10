@@ -73,7 +73,7 @@ def steps_required(start_point:str, input_data, part2=False):
     
 
 def part1():
-    INPUT_FILE = r"advent of code\2023\day 8\input.txt"
+    INPUT_FILE = r"advent of code\2023\day 08\input.txt"
     data = open(INPUT_FILE).read().split("\n")
 
     n = steps_required("AAA", data)

@@ -1,6 +1,6 @@
 import re
 
-INPUT_FILE = r"advent of code\2023\day 9\input.txt"
+INPUT_FILE = r"advent of code\2023\day 09\input.txt"
 data = open(INPUT_FILE).read().split("\n")
 digits = [re.findall("[+-]?\d+", line) for line in data]
 
