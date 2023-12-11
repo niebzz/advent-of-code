@@ -25,7 +25,7 @@ def get_galaxies(data: list[list]):
     return galaxies
 
 
-def sum_all_galaxy_distances(input_data, multiplier=1):
+def sum_all_galaxy_distances(input_data, multiplier=2):
     empty_rows, empty_cols = get_empty_rows_cols(input_data)
     galaxies = get_galaxies(input_data)
 
@@ -44,7 +44,7 @@ def part1():
         input_data = f.read().strip().split("\n")
         input_data = [list(x) for x in input_data]
 
-    p1_total = sum_all_galaxy_distances(input_data, multiplier=2)
+    p1_total = sum_all_galaxy_distances(input_data)
     print(f"Part 1: {p1_total}")
     return input_data, p1_total
 
