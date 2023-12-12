@@ -1,8 +1,6 @@
 import re
-import time # part 2 takes a while
 
-
-input = open(r"input.txt", "r").read()
+input = open(r"advent of code\2023\day 04\input.txt", "r").read()
 input = input.split("\n")
 
 num_rows = len(input)
