@@ -75,7 +75,6 @@ def part2():
             if ch in symbols:
                 special_characters[(r, c)] = []
 
-    edges = {}
     for r, row in enumerate(input):
         digits = re.finditer("\d+", row)
         for digit in digits:
