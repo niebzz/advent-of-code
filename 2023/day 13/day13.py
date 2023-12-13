@@ -2,7 +2,7 @@
 def intersect_multiple_lists(list_of_lists: list[list]) -> list:
     return list(set.intersection(*map(set, list_of_lists)))
 
-    
+
 def find_reflections(row: str) -> list:
     ls = list(row)
 
@@ -40,5 +40,6 @@ def part1():
         total += (horiz_mirrors * 100) + vert_mirrors
     print(f"Part1: {total}")
     return grids
+
 
 part1()

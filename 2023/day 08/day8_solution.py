@@ -1,14 +1,19 @@
 import math
 
+
 def get_arrays(input_data):
     instructions = list(input_data[0])
     start_array = [line[0:3] for i, line in enumerate(input_data) if i > 1]
-    next_l_array = [line.split("(")[1][0:3] for i, line in enumerate(input_data) if i > 1]
-    next_r_array = [line.split(")")[0][-3:] for i, line in enumerate(input_data) if i > 1]
+    next_l_array = [line.split("(")[1][0:3]
+                    for i, line in enumerate(input_data) if i > 1]
+    next_r_array = [line.split(")")[0][-3:]
+                    for i, line in enumerate(input_data) if i > 1]
     return instructions, start_array, next_l_array, next_r_array
 
-def steps_required(start_point:str, input_data, part2=False):  
-    instructions, start_array, next_l_array, next_r_array = get_arrays(input_data)
+
+def steps_required(start_point: str, input_data, part2=False):
+    instructions, start_array, next_l_array, next_r_array = get_arrays(
+        input_data)
 
     instruction_counter = 0
     loop_counter = 0
@@ -17,10 +22,10 @@ def steps_required(start_point:str, input_data, part2=False):
     position = {}
     position[pos_counter] = start_array[pos_index]
 
-    if not part2:   
+    if not part2:
         while "ZZZ" != list(position.values())[-1]:
             instruction = instructions[instruction_counter]
-            
+
             if instruction == "L":
                 next_l = next_l_array[pos_index]
                 next_pos = next_l
@@ -37,24 +42,24 @@ def steps_required(start_point:str, input_data, part2=False):
             pos_counter += 1
             loop_counter += 1
             instruction_counter += 1
-            
+
             if instruction_counter >= len(instructions):
                 instruction_counter = 0
 
         return pos_counter
-    
+
     elif part2:
         while not list(position.values())[-1].endswith("Z"):
             instruction = instructions[instruction_counter]
-            
+
             if instruction == "L":
                 next_l = next_l_array[pos_index]
                 next_pos = next_l
-                next_r = False # for debugging
+                next_r = False  # for debugging
             elif instruction == "R":
                 next_r = next_r_array[pos_index]
                 next_pos = next_r
-                next_l = False # for debugging
+                next_l = False  # for debugging
             else:
                 print("Error!")
                 exit()
@@ -65,12 +70,12 @@ def steps_required(start_point:str, input_data, part2=False):
             pos_counter += 1
             loop_counter += 1
             instruction_counter += 1
-            
+
             if instruction_counter >= len(instructions):
                 instruction_counter = 0
 
         return pos_counter
-    
+
 
 def part1():
     INPUT_FILE = r"advent of code\2023\day 08\input.txt"
@@ -91,7 +96,7 @@ def part2():
         n = steps_required(start, data, part2=True)
         ghost_steps.append(n)
 
-    lcm = 1 # Least Common Multiple
+    lcm = 1  # Least Common Multiple
     for steps in ghost_steps:
         lcm = math.lcm(lcm, steps)
 
@@ -100,4 +105,3 @@ def part2():
 
 part1()
 part2()
-    

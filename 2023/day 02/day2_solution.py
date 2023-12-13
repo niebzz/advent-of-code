@@ -2,14 +2,14 @@ import re
 
 input = open("input.txt", "r").readlines()
 
-total_red = 12;
-total_green = 13;
-total_blue = 14;
+total_red = 12
+total_green = 13
+total_blue = 14
 
 invalid_games = []
 
 for row in input:
-    game = row.split(":", maxsplit = 1)[0]
+    game = row.split(":", maxsplit=1)[0]
     sets = row.replace(game + ': ', '').split(";")
 
     for set in sets:
@@ -43,12 +43,12 @@ for row in input:
                 invalid_games.append(game)
                 # print(f"{game} invalid: more than {total_blue} blue found in [{set}]")
                 break
-    
+
 
 valid_games = []
 
 for row in input:
-    game = row.split(":", maxsplit = 1)[0]
+    game = row.split(":", maxsplit=1)[0]
 
     if game in invalid_games:
         continue
@@ -67,7 +67,7 @@ print(f"""
 ---
     Part 1 Sum: {sum}
 ---""")
-  
+
 
 # Part 2
 fewest_red = []
@@ -76,8 +76,8 @@ fewest_blue = []
 
 
 for row in input:
-    game = row.split(":", maxsplit = 1)[0]
-    sets = row.split(":", maxsplit = 1)[1]
+    game = row.split(":", maxsplit=1)[0]
+    sets = row.split(":", maxsplit=1)[1]
 
     num_red = re.findall(r"(\d+) red", sets)
     num_red = [eval(item) for item in num_red]
@@ -91,7 +91,6 @@ for row in input:
     fewest_red.append(max(num_red))
     fewest_green.append(max(num_green))
     fewest_blue.append(max(num_blue))
-
 
 
 power = []

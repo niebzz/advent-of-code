@@ -8,11 +8,14 @@ def map_grid(input_data: list) -> dict:
             grid[(i, j)] = input_data[i][j]
     return grid
 
+
 def find_S(grid: dict) -> tuple:
     return [key for key in grid if grid[key] == "S"][0]
-    
+
+
 def get_pipe(position: tuple, grid: dict) -> str:
     return grid[position]
+
 
 def get_next_position(position: tuple, direction: str, grid: dict) -> tuple:
     north = 0
@@ -32,7 +35,7 @@ def get_next_position(position: tuple, direction: str, grid: dict) -> tuple:
     next_row = position[0] + south - north
     next_col = position[1] + east - west
     next_pos = (next_row, next_col)
-    
+
     new_dir = direction
     next_pipe = get_pipe(next_pos, grid)
     match next_pipe:
@@ -41,35 +44,35 @@ def get_next_position(position: tuple, direction: str, grid: dict) -> tuple:
                 return None
         case "-":
             if direction == "north" or direction == "south":
-                return None                
+                return None
         case "L":
             if direction == "south":
                 new_dir = "east"
             elif direction == "west":
                 new_dir = "north"
-            else: 
-                return None                
+            else:
+                return None
         case "J":
             if direction == "south":
                 new_dir = "west"
             elif direction == "east":
                 new_dir = "north"
-            else: 
-                return None                
+            else:
+                return None
         case "7":
             if direction == "east":
                 new_dir = "south"
             elif direction == "north":
                 new_dir = "west"
-            else: 
-                return None                
+            else:
+                return None
         case "F":
             if direction == "north":
                 new_dir = "east"
             elif direction == "west":
                 new_dir = "south"
-            else: 
-                return None                
+            else:
+                return None
         case ".":
             return None
         case "S":
@@ -100,11 +103,12 @@ def part1():
 
     return s, input_data, grid, main_loop, step_count
 
+
 s, input_data, grid, main_loop, step_count = part1()
 
 
 def part2():
-    grid[s] = "L" # manually replacing S character
+    grid[s] = "L"  # manually replacing S character
 
     data = [["."]*len(line) for line in input_data]
     for (r, c) in grid:
@@ -119,7 +123,7 @@ def part2():
         for c, ch in enumerate(row):
             if ch == "|":
                 odd_number = not odd_number
-            elif ch =="F":
+            elif ch == "F":
                 odd_number = not odd_number
             elif ch == "7":
                 odd_number = not odd_number
@@ -129,9 +133,10 @@ def part2():
                     inside[(r, c)] = "I"
 
         total_count += line_count
-    print(f"Part2: {total_count}")  
+    print(f"Part2: {total_count}")
 
-    return total_count, inside       
+    return total_count, inside
+
 
 total_count, inside = part2()
 
@@ -142,7 +147,7 @@ inside_rows = [pos[0] for pos in inside]
 inside_cols = [pos[1] for pos in inside]
 
 plt.plot(rows, cols, "b", label="Main Loop")
-plt.plot(s[1], s[0], "ro", label="S") 
+plt.plot(s[1], s[0], "ro", label="S")
 plt.plot(inside_rows, inside_cols, "g*", label="Enclosed Tiles")
 plt.gca().invert_yaxis()
 plt.show()

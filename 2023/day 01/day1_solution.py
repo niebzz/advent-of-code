@@ -12,7 +12,7 @@ def get_calibration(data):
     calibration_values = []
     for line in data:
         digits = re.findall("(\d)", line)
-        value = int(digits[0] + digits[-1]) 
+        value = int(digits[0] + digits[-1])
         calibration_values.append(value)
 
     calibration = sum(calibration_values)
@@ -39,9 +39,9 @@ def part2():
         line = line.replace("seven", "s7n")
         line = line.replace("eight", "e8t")
         line = line.replace("nine", "n9e")
-        
+
         data2.append(line)
-    
+
     sum2 = get_calibration(data2)
     print(f"Part 2: {sum2}")
 

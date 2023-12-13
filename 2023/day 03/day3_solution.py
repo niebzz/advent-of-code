@@ -6,28 +6,29 @@ input = input.split("\n")
 num_rows = len(input)
 row_length = len(input[0])
 
+
 def part1():
     valid_part_numbers = []
 
     symbols = ["`",
-            "~",
-            "!",
-            "@",
-            "#",
-            "$",
-            "%",
-            "^",
-            "&",
-            "*",
-            "-",
-            "=",
-            "+",
-            "/",
-            "|",
-            ":",
-            ";",
-            "_"
-            ]
+               "~",
+               "!",
+               "@",
+               "#",
+               "$",
+               "%",
+               "^",
+               "&",
+               "*",
+               "-",
+               "=",
+               "+",
+               "/",
+               "|",
+               ":",
+               ";",
+               "_"
+               ]
 
     for y, line in enumerate(input):
         digits = re.findall("(\d+)", line)
@@ -40,7 +41,7 @@ def part1():
             range_y = 3
             adjacent_chars = []
             for i in range(range_x):
-                x = start_x -1 + i
+                x = start_x - 1 + i
                 if x < 0:
                     pass
                 elif x >= row_length:
@@ -66,7 +67,9 @@ def part1():
     print(f"Part 1 Answer: {sum}")
     return valid_part_numbers, symbols
 
+
 valid_part_numbers, symbols = part1()
+
 
 def part2():
     special_characters = {}
@@ -82,7 +85,7 @@ def part2():
                 for c in range(digit.start()-1, digit.end()+1):
                     if (r2, c) in special_characters:
                         special_characters[(r2, c)].append(int(digit.group()))
-    
+
     gear_ratios = []
     for values in special_characters.values():
         if len(values) == 2:

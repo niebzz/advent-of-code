@@ -13,7 +13,9 @@ for i in range(len(data[0])):
 
     opp_races.append((time, opp_distance))
 
-def get_ways_to_win(races: list) -> list: # races = [(time1, distance1), (time2, distance2), etc.]
+
+# races = [(time1, distance1), (time2, distance2), etc.]
+def get_ways_to_win(races: list) -> list:
     ways_to_win = []
 
     for i, race in enumerate(races):
@@ -28,12 +30,12 @@ def get_ways_to_win(races: list) -> list: # races = [(time1, distance1), (time2,
             hold_time = j
             travel_time = time - hold_time
 
-            velocity = hold_time 
+            velocity = hold_time
             distance = travel_time * velocity
-            
+
             if distance > distance_to_beat:
                 num_ways_to_win = num_ways_to_win + 1
-                
+
         ways_to_win.append(num_ways_to_win)
 
     return ways_to_win

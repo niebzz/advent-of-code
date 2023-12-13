@@ -24,7 +24,7 @@ def four_of_a_kind(string: str) -> bool:
     card_count = [get_num_occurences(char, string) for char in string]
     if len(string) == 5 and max(card_count) == 4:
         return True
-    else:  
+    else:
         return False
 
 
@@ -40,7 +40,7 @@ def three_of_a_kind(string: str) -> bool:
     card_count = [get_num_occurences(char, string) for char in string]
     if len(string) == 5 and max(card_count) == 3:
         return True
-    else:  
+    else:
         return False
 
 
@@ -66,7 +66,7 @@ def high_card(string: str) -> bool:
         return True
     else:
         return False
-    
+
 
 def evaluate_hand(hand: str):
     # assigns an arbirtary strength value based on the type of hand
@@ -88,7 +88,7 @@ def evaluate_hand(hand: str):
         return 1
     else:
         return None
-    
+
 
 def get_relative_strength(char: str):
     ranking = "AKQJT98765432"
@@ -112,7 +112,8 @@ def break_ties(tied_hands: list):
         hand_strength = c1_rs + c2_rs + c3_rs + c4_rs + c5_rs
         new_ranks[hand] = hand_strength
 
-    new_ranks = list(dict(sorted(new_ranks.items(), key=lambda item: item[1])).keys())
+    new_ranks = list(
+        dict(sorted(new_ranks.items(), key=lambda item: item[1])).keys())
     return new_ranks
 
 
@@ -121,16 +122,24 @@ def sort_hands(input_data: dict):
     for i, hand in enumerate(list(input_data.keys())):
         strength = evaluate_hand(hand)
         strength_dict[hand] = strength
-    
-    fivekinds   = break_ties([x for x in strength_dict.keys() if strength_dict[x] == 7])
-    fourkinds   = break_ties([x for x in strength_dict.keys() if strength_dict[x] == 6])
-    fullhouses  = break_ties([x for x in strength_dict.keys() if strength_dict[x] == 5])
-    threekinds  = break_ties([x for x in strength_dict.keys() if strength_dict[x] == 4])
-    twopairs    = break_ties([x for x in strength_dict.keys() if strength_dict[x] == 3])
-    onepairs    = break_ties([x for x in strength_dict.keys() if strength_dict[x] == 2])
-    highcards   = break_ties([x for x in strength_dict.keys() if strength_dict[x] == 1])
 
-    sorted_list = highcards + onepairs + twopairs + threekinds + fullhouses + fourkinds + fivekinds
+    fivekinds = break_ties(
+        [x for x in strength_dict.keys() if strength_dict[x] == 7])
+    fourkinds = break_ties(
+        [x for x in strength_dict.keys() if strength_dict[x] == 6])
+    fullhouses = break_ties(
+        [x for x in strength_dict.keys() if strength_dict[x] == 5])
+    threekinds = break_ties(
+        [x for x in strength_dict.keys() if strength_dict[x] == 4])
+    twopairs = break_ties(
+        [x for x in strength_dict.keys() if strength_dict[x] == 3])
+    onepairs = break_ties(
+        [x for x in strength_dict.keys() if strength_dict[x] == 2])
+    highcards = break_ties(
+        [x for x in strength_dict.keys() if strength_dict[x] == 1])
+
+    sorted_list = highcards + onepairs + twopairs + \
+        threekinds + fullhouses + fourkinds + fivekinds
 
     rank = {}
     for item in sorted_list:
@@ -195,23 +204,33 @@ def p2_evaluate_hand(hand: str):
     else:
         return None
 
+
 def part2():
     data = process_input_data(r"advent of code\2023\day 7\input.txt")
+
     def p2_sort_hands(data):
         strength_dict = {}
         for i, hand in enumerate(list(data.keys())):
             strength = p2_evaluate_hand(hand)
             strength_dict[hand] = strength
 
-        fivekinds   = break_ties([x for x in strength_dict.keys() if strength_dict[x] == 7])
-        fourkinds   = break_ties([x for x in strength_dict.keys() if strength_dict[x] == 6])
-        fullhouses  = break_ties([x for x in strength_dict.keys() if strength_dict[x] == 5])
-        threekinds  = break_ties([x for x in strength_dict.keys() if strength_dict[x] == 4])
-        twopairs    = break_ties([x for x in strength_dict.keys() if strength_dict[x] == 3])
-        onepairs    = break_ties([x for x in strength_dict.keys() if strength_dict[x] == 2])
-        highcards   = break_ties([x for x in strength_dict.keys() if strength_dict[x] == 1])
+        fivekinds = break_ties(
+            [x for x in strength_dict.keys() if strength_dict[x] == 7])
+        fourkinds = break_ties(
+            [x for x in strength_dict.keys() if strength_dict[x] == 6])
+        fullhouses = break_ties(
+            [x for x in strength_dict.keys() if strength_dict[x] == 5])
+        threekinds = break_ties(
+            [x for x in strength_dict.keys() if strength_dict[x] == 4])
+        twopairs = break_ties(
+            [x for x in strength_dict.keys() if strength_dict[x] == 3])
+        onepairs = break_ties(
+            [x for x in strength_dict.keys() if strength_dict[x] == 2])
+        highcards = break_ties(
+            [x for x in strength_dict.keys() if strength_dict[x] == 1])
 
-        sorted_list = highcards + onepairs + twopairs + threekinds + fullhouses + fourkinds + fivekinds
+        sorted_list = highcards + onepairs + twopairs + \
+            threekinds + fullhouses + fourkinds + fivekinds
 
         rank = {}
         for item in sorted_list:
