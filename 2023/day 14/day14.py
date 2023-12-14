@@ -1,4 +1,5 @@
-def push_rocks(row: list[str]) -> list[str]:
+def push_rocks_east(row: str) -> str:
+    row = list(row)
     count_O = 0
     for i, item in enumerate(row):
         if item == "O":
@@ -13,7 +14,7 @@ def push_rocks(row: list[str]) -> list[str]:
             for k in range(len(row)-count_O, len(row)):
                 row[k] = "O"
             count_O = 0
-    return row
+    return ["".join(char) for char in row]
 
 
 def transpose_platform_clockwise(data: list[str]) -> list[str]:
@@ -25,7 +26,7 @@ def transpose_platform_counterclockwise(data: list[str]) -> list[str]:
 
 
 def tilt_platform_east(data: list[str]) -> list[str]:
-    return ["".join(push_rocks(list(row))) for row in data]
+    return [push_rocks_east(row) for row in data]
 
 
 def tilt_platform_west(data: list[str]) -> list[str]:
