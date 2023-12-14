@@ -34,13 +34,17 @@ def tilt_platform_west(data: list[str]) -> list[str]:
 
 
 def tilt_platform_north(data: list[str]) -> list[str]:
-    return transpose_platform_counterclockwise(
-        tilt_platform_east(transpose_platform_clockwise(data)))
+    return (
+        transpose_platform_counterclockwise(
+            tilt_platform_east(
+                transpose_platform_clockwise(data))))
 
 
 def tilt_platform_south(data: list[str]) -> list[str]:
-    return transpose_platform_clockwise(
-        tilt_platform_east(transpose_platform_counterclockwise(data)))
+    return (
+        transpose_platform_clockwise(
+            tilt_platform_east(
+                transpose_platform_counterclockwise(data))))
 
 
 def calculate_load_north(data: list[str]) -> int:
@@ -48,7 +52,10 @@ def calculate_load_north(data: list[str]) -> int:
 
 
 def spin_cycle(data: list[str]) -> list[str]:
-    return tilt_platform_east(tilt_platform_south(tilt_platform_west(tilt_platform_north(data))))
+    return tilt_platform_east(
+        tilt_platform_south(
+            tilt_platform_west(
+                tilt_platform_north(data))))
 
 
 def part1(data: list[str]):
