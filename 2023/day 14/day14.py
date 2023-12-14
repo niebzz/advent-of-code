@@ -1,4 +1,4 @@
-def push_rocks(row: list) -> list:
+def push_rocks(row: list[str]) -> list[str]:
     count_O = 0
     for i, item in enumerate(row):
         if item == "O":
@@ -16,46 +16,46 @@ def push_rocks(row: list) -> list:
     return row
 
 
-def transpose_platform_clockwise(data: list) -> list:
+def transpose_platform_clockwise(data: list[str]) -> list[str]:
     return list(map(lambda x: "".join(reversed(x)), zip(*data)))
 
 
-def transpose_platform_counterclockwise(data: list) -> list:
+def transpose_platform_counterclockwise(data: list[str]) -> list[str]:
     return ["".join(x) for x in reversed(list(zip(*data)))]
 
 
-def tilt_platform_east(data: list) -> list:
+def tilt_platform_east(data: list[str]) -> list[str]:
     return ["".join(push_rocks(list(row))) for row in data]
 
 
-def tilt_platform_west(data: list) -> list:
+def tilt_platform_west(data: list[str]) -> list[str]:
     return ["".join(reversed(x)) for x in (
         tilt_platform_east(["".join(reversed(x)) for x in data]))]
 
 
-def tilt_platform_north(data: list) -> list:
+def tilt_platform_north(data: list[str]) -> list[str]:
     return transpose_platform_counterclockwise(
         tilt_platform_east(transpose_platform_clockwise(data)))
 
 
-def tilt_platform_south(data: list) -> list:
+def tilt_platform_south(data: list[str]) -> list[str]:
     return transpose_platform_clockwise(
         tilt_platform_east(transpose_platform_counterclockwise(data)))
 
 
-def calculate_load_north(data):
+def calculate_load_north(data: list[str]) -> int:
     return sum([row.count("O") * (len(data) - i) for i, row in enumerate(data)])
 
 
-def spin_cycle(data):
+def spin_cycle(data: list[str]) -> list[str]:
     return tilt_platform_east(tilt_platform_south(tilt_platform_west(tilt_platform_north(data))))
 
 
-def part1(data: list):
+def part1(data: list[str]):
     print(f"Part 1: {calculate_load_north(tilt_platform_north(data))}")
 
 
-def part2(data: list):
+def part2(data: list[str]):
     num_cycles = 1_000  # 1,000 ends up working out to be the same as 1 billion
     i = 0
     while i < num_cycles:
