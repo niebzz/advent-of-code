@@ -17,13 +17,13 @@ def get_garden_plots(data, start, num_steps):
     queue = deque([(start_row, start_col, num_steps)])
 
     while queue:
-        row, c, steps = queue.popleft()
+        row, col, steps = queue.popleft()
         if steps % 2 == 0:
             results.add((row, c))
         if steps == 0:
             continue
 
-        for next_row, next_col in [(row, c - 1), (row, c + 1), (row - 1, c), (row + 1, c)]:
+        for next_row, next_col in [(row, col - 1), (row, col + 1), (row - 1, col), (row + 1, col)]:
             if next_row < 0 or next_col < 0 or next_row >= len(data) or next_col >= len(data[0]):
                 continue
             elif data[next_row][next_col] == "#":
