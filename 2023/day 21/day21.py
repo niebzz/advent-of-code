@@ -19,7 +19,7 @@ def get_garden_plots(data, start, num_steps):
     while queue:
         row, col, steps = queue.popleft()
         if steps % 2 == 0:
-            results.add((row, c))
+            results.add((row, col))
         if steps == 0:
             continue
 
