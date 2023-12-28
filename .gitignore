@@ -1,6 +1,11 @@
-# ADVENT OF CODE (copyrighted files)
+# Advent of Code Stuff
 *.txt
+my_secrets.py
 
-# DEVELOPING
+# Developing
 2023/day 16
 2023/day 19
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
