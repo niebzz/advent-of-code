@@ -1,4 +1,4 @@
-from utilities.web import get_puzzle_input
+from aoc_utils.web import get_puzzle_input
 
 
 def has_three_vowels(line: str) -> bool:
@@ -49,8 +49,7 @@ def is_nice(line: str, part2=False) -> bool:
 
 
 if __name__ == "__main__":
-    data = get_puzzle_input(
-        year=2015, day=5, input_file=r"advent_of_code\2015\day 5\input.txt").strip().split("\n")
+    data = get_puzzle_input(year=2015, day=5).read().strip().split("\n")
 
     p1 = sum([1 for line in data if is_nice(line)])
     p2 = sum([1 for line in data if is_nice(line, part2=True)])

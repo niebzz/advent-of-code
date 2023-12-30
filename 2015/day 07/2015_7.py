@@ -1,4 +1,4 @@
-from utilities.web import get_puzzle_input
+from aoc_utils.web import get_puzzle_input
 
 
 def get_initial_signals(data: list[str], wires: dict):
@@ -92,7 +92,7 @@ def part1(data):
 
 
 def main():
-    data = get_puzzle_input(year=2015, day=7).strip().split("\n")
+    data = get_puzzle_input(year=2015, day=7).read().strip().split("\n")
     p1 = part1(data)
     print(f"Part 1: {p1}")
 

@@ -1,6 +1,6 @@
 import re
 import time
-from utilities.web import get_puzzle_input
+from aoc_utils.web import get_puzzle_input
 
 
 def read_line(line: str):
@@ -112,7 +112,7 @@ def part2():
 
 # MAIN
 if __name__ == "__main__":
-    data = get_puzzle_input(year=2015, day=6).split("\n")
+    data = get_puzzle_input(year=2015, day=6).read().split("\n")
     on = "★"
     off = "."
     n = 1000

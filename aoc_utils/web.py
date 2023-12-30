@@ -1,7 +1,7 @@
 import os
 import requests
 import sys
-from my_secrets import session_cookie
+from aoc_utils.my_secrets import session_cookie
 
 
 def get_puzzle_input(year: int, day: int):

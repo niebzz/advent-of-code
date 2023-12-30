@@ -1,6 +1,6 @@
 import re
 import itertools
-from utilities.web import get_puzzle_input
+from aoc_utils.web import get_puzzle_input
 
 
 def get_route_info(data: list[str]):
@@ -20,7 +20,7 @@ def measure_distance(city1: str, city2: str, route_info: list[tuple]):
 
 
 def main():
-    data = get_puzzle_input(year=2015, day=9).strip().split("\n")
+    data = get_puzzle_input(year=2015, day=9).read().strip().split("\n")
     route_info = get_route_info(data)
     all_routes = get_possible_routes(route_info)
 
