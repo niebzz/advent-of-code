@@ -21,7 +21,7 @@ def get_puzzle_input(year: int, day: int):
     input_file = current_directory + file_name
 
     if os.path.isfile(input_file):
-        return open(input_file, "r").read()
+        return open(input_file, "r")
 
     puzzle_input = requests.get(
         url=f"https://adventofcode.com/{year}/day/{day}/input",
@@ -32,4 +32,4 @@ def get_puzzle_input(year: int, day: int):
         f.write(puzzle_input)
         print(f"Input file for {year} day {day} created.")
 
-    return open(input_file, "r").read()
+    return open(input_file, "r")
