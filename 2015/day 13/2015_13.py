@@ -36,7 +36,7 @@ def total_happiness(seating_arrangement: tuple, happiness_info: dict):
     return total
 
 
-def part1():
+def part1(data):
     names = get_names(data)
     happiness_info = get_happiness_info(data)
 
@@ -49,7 +49,7 @@ def part1():
     return max_score
 
 
-def part2():
+def part2(data):
     def add_myself():
         names = get_names(data)
         me = "me"
@@ -59,11 +59,15 @@ def part2():
             data.append(
                 f"{name} would gain 0 happiness units by sitting next to {me}.")
     add_myself()
-    return part1()
+    return part1(data)
 
 
-# MAIN
-data = get_puzzle_input(year=2015, day=13).read().split("\n")
+def main():
+    data = get_puzzle_input(year=2015, day=13).read().split("\n")
 
-print(f"Part 1: {part1()}")
-print(f"Part 2: {part2()}")
+    print(f"Part 1: {part1(data)}")
+    print(f"Part 2: {part2(data)}")
+
+
+if __name__ == "__main__":
+    main()
