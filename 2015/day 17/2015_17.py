@@ -1,5 +1,4 @@
 from itertools import combinations
-from math import factorial
 from aoc_utils.web import get_puzzle_input
 
 
