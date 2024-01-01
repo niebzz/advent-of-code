@@ -4,7 +4,7 @@ def display_grid(grid: list[list]):
         print(row)
 
 
-def get_adjacent_coordinates(row: int, col: int, grid: list[list]):
+def get_adjacent_coordinates(row: int, col: int, grid: list[list]) -> list(tuple):
     """Takes row, col integers as part of a grid (list of sublists 
     containing single-character elements) and returns the adjacent 
     rows, columns that are within the boundaries of the grid."""
