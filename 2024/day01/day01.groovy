@@ -16,7 +16,7 @@ int totalDistance = 0
     totalDistance += Math.abs(loc1 - loc2)
 }
 
-println totalDistance
+print totalDistance
 
 // PART 2
 int similarityScore = 0
