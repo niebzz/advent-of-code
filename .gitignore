@@ -3,6 +3,7 @@
 my_secrets.py
 
 # Developing
+*.json
 2023/day 16
 2023/day 19
 
