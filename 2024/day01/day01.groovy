@@ -6,8 +6,8 @@ List list1 = []
 List list2 = []
 
 input.eachWithIndex { num, i ->
-    if (i % 2 == 0) { list1 += num } // odd numbers
-    if (i % 2 != 0) { list2 += num } // even numbers
+    if (i % 2 == 0) { list1 += num } // even numbers [0, 2, 4...]
+    if (i % 2 != 0) { list2 += num } // odd numbers [1, 3, 5...]
 }
 
 // PART 1
